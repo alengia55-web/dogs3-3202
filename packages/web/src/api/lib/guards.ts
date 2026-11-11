@@ -1,6 +1,7 @@
 import { ORPCError } from "@orpc/server";
 import { base } from "../__core/app";
 import { auth } from "../auth";
+import { isOwnerEmail } from "../../shared/admin-access";
 
 export interface StaffUser {
   id: string;
@@ -14,6 +15,8 @@ export async function readStaff(headers: Headers): Promise<StaffUser | null> {
   const session = await auth.api.getSession({ headers });
   if (!session?.user) return null;
   const user = session.user as unknown as StaffUser;
+  // Hiding a link is not authorization: reject every non-owner or non-admin session.
+  if (!isOwnerEmail(user.email) || user.role !== "admin") return null;
   return {
     id: user.id,
     name: user.name,

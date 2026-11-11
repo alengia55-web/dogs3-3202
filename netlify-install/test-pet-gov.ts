@@ -9,6 +9,7 @@ import { ensurePetGovColumn } from "./migrate-pet-gov";
 import { ensureInKindTable } from "./migrate-in-kind";
 import { shelterToday } from "../packages/web/src/shared/in-kind";
 import { isPetGovListingUrl } from "../packages/web/src/shared/pet-gov";
+import { seedTestUser } from "./test-auth-fixture";
 
 const dir = await mkdtemp(join(tmpdir(), "shelter-pet-gov-test-"));
 process.env.DATABASE_URL = `file:${dir}/test.sqlite`;
@@ -45,8 +46,8 @@ const client: any = createORPCClient(new RPCLink({
 }));
 assert.equal((await client.dogs.list())[0].petGovUrl, "");
 await assert.rejects(() => client.dogs.update({ id: original.id, petGovUrl: listing }), (error: any) => error.status === 401);
-await client.staff.register({ name: "Isolated test", email: "pet-gov-test@example.invalid", password: "isolated-test-password", inviteCode: process.env.STAFF_INVITE_CODE });
-const login = await app.fetch(new Request(`${process.env.WEBSITE_URL}/api/auth/sign-in/email`, { method: "POST", headers: { origin: process.env.WEBSITE_URL!, "content-type": "application/json" }, body: JSON.stringify({ email: "pet-gov-test@example.invalid", password: "isolated-test-password" }) }));
+const owner = await seedTestUser(db);
+const login = await app.fetch(new Request(`${process.env.WEBSITE_URL}/api/auth/sign-in/email`, { method: "POST", headers: { origin: process.env.WEBSITE_URL!, "content-type": "application/json" }, body: JSON.stringify(owner) }));
 assert.equal(login.status, 200);
 token = login.headers.get("set-auth-token")!;
 assert.ok(token);

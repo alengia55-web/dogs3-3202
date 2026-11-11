@@ -16,10 +16,9 @@ export default async function handler(request: Request): Promise<Response> {
     return Response.json({ error: "Invalid URL configuration or request" }, { status: 400 });
   }
 
-  // Better Auth's public HTTP signup must not bypass staff.register's invite code.
-  // Internal auth.api.signUpEmail calls from that procedure remain available.
+  // Defense in depth: this site permits only the existing owner, never signup.
   if (/^\/api\/auth\/sign-up(?:\/|$)/.test(pathname)) {
-    return Response.json({ error: "Use staff registration with an invite code" }, { status: 403 });
+    return Response.json({ error: "Account registration is disabled" }, { status: 403 });
   }
 
   // The existing API uses reflected CORS; enforce the canonical site here.

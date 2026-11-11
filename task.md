@@ -126,3 +126,10 @@ G. English version (full EL/EN bilingual)
 - Build and local Greek/English public-page checks passed. Source pushed to existing GitHub main (f625ff6); deployment 6af45a7b712491a3bcc26c43 ready.
 - Live verification passed on https://shelterdogsk.netlify.app: no Instagram text/icons/outbound links on home/adopt/volunteer/donate in explicitly toggled Greek/English; maintained email CTA and 1280/390/320px layouts verified. Full gallery and in-kind donation UI regressions passed without production writes.
 - Netlify deployment reports the custom domain as siteUrl, but current HTTPS request cannot resolve kinokomeiodimoumeteoron.gr. Working Netlify hostname remains the verified live URL; custom-domain activation is not verified.
+
+## Single-owner administrator access
+- User approved removing the public footer staff-login link, restricting direct /admin to info@kinokomeiodimoumeteoron.gr, and generating a permanent random password delivered privately here. Mailbox is not active; user explicitly approved switching now with recovery unavailable until email is configured.
+- Remove registration and staff-management navigation; backend owner-email/admin-role guards must reject old identities/sessions. Block invitation signup, identity/role/account changes, and alternate password-change/reset paths while recovery is unavailable.
+- Preserve the existing owner user ID and all public/application data; update only owner login/email/password and revoke old sessions. No mailbox creation or reset-email delivery claim.
+- Implementation/build and isolated owner/auth + dog/in-kind API regressions passed. Local 320px login/footer checks passed. Live credential migration retained the original owner ID, replaced email/password, revoked existing sessions and verified new login; all public data/settings/applications matched the pre-migration snapshot exactly. Matching local preview account provisioned in previously empty user tables. Password saved only in a private file outside the repository.
+- Source deployment and final live UI/security verification pending.

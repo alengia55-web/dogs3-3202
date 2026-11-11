@@ -13,7 +13,8 @@ export const adminDict = {
     },
     login: {
       title: "Είσοδος προσωπικού",
-      subtitle: "Μόνο για το προσωπικό του κυνοκομείου.",
+      subtitle: "Πρόσβαση μόνο για τον διαχειριστή του κυνοκομείου.",
+      recoveryUnavailable: "Η ανάκτηση κωδικού δεν είναι ακόμη διαθέσιμη. Θα ενεργοποιηθεί μόνο μέσω του παραπάνω email όταν ρυθμιστεί η αλληλογραφία.",
       tabSignIn: "Σύνδεση",
       tabRegister: "Νέος λογαριασμός",
       name: "Ονοματεπώνυμο",
@@ -175,7 +176,8 @@ export const adminDict = {
     },
     login: {
       title: "Staff sign in",
-      subtitle: "Shelter staff only.",
+      subtitle: "Access for the shelter administrator only.",
+      recoveryUnavailable: "Password recovery is not available yet. It will use only the email above once email service is configured.",
       tabSignIn: "Sign in",
       tabRegister: "New account",
       name: "Full name",

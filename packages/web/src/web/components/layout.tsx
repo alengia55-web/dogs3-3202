@@ -179,12 +179,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   {t.nav.volunteer}
                 </ComicLink>
               </div>
-              <Link
-                to="/admin"
-                className="mt-6 inline-block text-xs text-paper/40 no-underline hover:text-paper/70"
-              >
-                {t.footer.staff}
-              </Link>
             </div>
           </div>
 

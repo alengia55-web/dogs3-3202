@@ -64,6 +64,7 @@ Text is always near-black `--ink` on pastel or white — no pastel text, no gray
 - Sections alternate white and pastel bands with a wavy/zig-zag top edge.
 - Sticky header: logo + wordmark left, nav center, EL/EN toggle + Donate button right.
 - In-kind donation form sits within /donate in a white comic card under the pink in-kind introduction; two columns on desktop, one on mobile. Collect minimal contact information, offered goods/quantity and a proposed delivery date/time. A clear note states that the date requires shelter confirmation. Success replaces only the form, keeping bank details available.
+- No public footer administrator link. Direct /admin login retains the comic identity with a fixed info@kinokomeiodimoumeteoron.gr username and password field, no registration tab or staff-management navigation. Explicitly explain that email-only password recovery is unavailable until email is configured; never imply a reset message was sent.
 
 ## Anti-patterns
 

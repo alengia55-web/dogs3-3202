@@ -7,7 +7,6 @@ import {
   LayoutDashboard,
   LogOut,
   Phone,
-  Users,
 } from "lucide-react";
 import { signOutStaff } from "../../lib/auth";
 import { useAdminText, useStaffSession } from "../../queries/admin";
@@ -68,7 +67,6 @@ export function AdminShell({
     ...(staff.role === "admin"
       ? [
           { to: "/admin/settings", label: a.nav.settings, icon: Phone },
-          { to: "/admin/staff", label: a.nav.staff, icon: Users },
         ]
       : []),
   ];
