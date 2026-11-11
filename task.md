@@ -123,4 +123,6 @@ G. English version (full EL/EN bilingual)
 ## Remove Instagram
 - Removed public Instagram icons/links and all Greek/English references in contact text, help/error copy and volunteering suggestions. Home contact CTA now opens the maintained email; footer social heading changed to participation.
 - Removed Instagram input from admin settings, cleared its live/local stored URL and installer/default values, retaining only the legacy API key for compatibility. All other contact/bank settings preserved.
-- Build and local Greek/English public-page checks passed. Live removal deployment pending verification.
+- Build and local Greek/English public-page checks passed. Source pushed to existing GitHub main (f625ff6); deployment 6af45a7b712491a3bcc26c43 ready.
+- Live verification passed on https://shelterdogsk.netlify.app: no Instagram text/icons/outbound links on home/adopt/volunteer/donate in explicitly toggled Greek/English; maintained email CTA and 1280/390/320px layouts verified. Full gallery and in-kind donation UI regressions passed without production writes.
+- Netlify deployment reports the custom domain as siteUrl, but current HTTPS request cannot resolve kinokomeiodimoumeteoron.gr. Working Netlify hostname remains the verified live URL; custom-domain activation is not verified.
