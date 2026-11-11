@@ -4,7 +4,7 @@ Municipal dog shelter of Δήμος Μετεώρων. Bilingual EL/EN. The feeli
 never confusing. Comic-sticker energy on a white page — think a friendly children's-book poster,
 not a corporate municipal portal.
 
-Brand name: Κυνοκομείο Δήμου Μετεώρων (English: Municipal Dog Shelter of Meteora). Retain the existing illustrated dog mark, replacing the former wordmark everywhere. Requested domain: kinokomeiodimoumeteoron.gr; activation requires registrar DNS and Netlify custom-domain configuration.
+Brand name: Κυνοκομείο Δήμου Μετεώρων (English: Municipal Dog Shelter of Meteora). Retain the existing illustrated dog mark, replacing the former wordmark everywhere. Canonical domain: https://kinokomeiodimoumeteoron.gr. Netlify's previous hostname redirects to this HTTPS domain while preserving paths, including /admin.
 
 ## Colors
 

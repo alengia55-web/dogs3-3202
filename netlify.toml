@@ -1,3 +1,5 @@
+"$schema" = "https://open-api.netlify.com/netlify.schema.json"
+
 [build]
   command = "bun run build:netlify"
   publish = "packages/web/dist"
@@ -9,6 +11,20 @@
 
 [functions]
   node_bundler = "esbuild"
+
+# Host-specific redirects must precede SPA rewrites and apply to real files too.
+# Old bookmarks, including /admin, keep their paths on the new HTTPS domain.
+[[redirects]]
+  from = "https://shelterdogsk.netlify.app/*"
+  to = "https://kinokomeiodimoumeteoron.gr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://shelterdogsk.netlify.app/*"
+  to = "https://kinokomeiodimoumeteoron.gr/:splat"
+  status = 301
+  force = true
 
 # Only frontend routes are rewritten. /api/* is handled directly by api.ts.
 # Avoid a catch-all rewrite which could swallow API requests.
